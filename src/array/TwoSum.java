@@ -48,8 +48,8 @@ public class TwoSum {
 
     public static void main(String[] args) {
 
-        int[] ar1 = {3,2,3,1,6,7};
-        int target = 9;
+        int[] ar1 = {3,2,0,-1,6,7};
+        int target = 5;
        /* int indexes[]  = twoSum(ar1,target);
 
         for(int i = 0;i<indexes.length;i++){
