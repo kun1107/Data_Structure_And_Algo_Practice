@@ -1,5 +1,8 @@
 package array;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * @author kunal
  * two sum: finding the target value based on array provided,
@@ -25,15 +28,38 @@ public class TwoSum {
 
         return sumIndex;
     }
+    //o(n)
+    public static int[] twoSumWithHashmap(int[] ar1,int target){
+        int sumIndex[] = new int[2];
+        Map<Integer,Integer> complementIndexMap = new HashMap<>();
+
+        for(int i = 0;i< ar1.length;i++){
+            int complement = target - ar1[i];
+            if(complementIndexMap.containsKey(complement)){
+                sumIndex[0] = i;
+                sumIndex[1] = complementIndexMap.get(complement);
+            }else{
+                complementIndexMap.put(ar1[i],i);
+            }
+        }
+
+        return sumIndex;
+    }
 
     public static void main(String[] args) {
 
-        int[] ar1 = {3,2,3};
-        int target = 6;
-        int indexes[]  = twoSum(ar1,target);
+        int[] ar1 = {3,2,3,1,6,7};
+        int target = 9;
+       /* int indexes[]  = twoSum(ar1,target);
 
         for(int i = 0;i<indexes.length;i++){
             System.out.print(indexes[i]+",");
+        }*/
+
+        int sumIndexes[] = twoSumWithHashmap(ar1,target);
+
+        for(int i = 0;i<sumIndexes.length;i++){
+            System.out.print((sumIndexes[i]+","));
         }
 
     }
